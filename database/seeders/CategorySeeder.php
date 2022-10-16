@@ -14,18 +14,22 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::insert([
+        $categories = [
             [
                 'name' => 'Phone',
                 'type' => 'Product',
-                'is_active' => 'True'
+                'is_active' => 'true'
             ],
 
             [
                 'name' => 'Computer',
                 'type' => 'Product',
-                'is_active' => 'True'
+                'is_active' => 'true'
             ]
-         ]);
+         ];
+
+         foreach ($categories as $key => $value) {
+            Category::create($value);
+        }
     }
 }

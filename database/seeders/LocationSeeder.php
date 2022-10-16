@@ -14,21 +14,21 @@ class LocationSeeder extends Seeder
      */
     public function run()
     {
-        Location::insert([
+        $locations = [
             [
-             'code'=> 'SU-00000001',
-             'deleted_at' => 'null',
-             'country' => 'BD',
-             'address_1' => 'Khilkhet',
-             'address_2' => 'null',
-             'city' => 'Dhaka',
-             'state' => 'Dhaka',
-             'zone' => 'Uttora',
-             'zip_code' => '1210',
-             'lat' => '23.830646510005334',
-             'lng' => '90.42397062039595',
-             'type' => 'offer',
-             'added_by' => '5'
+                'code'=> 'SU-00000001',
+                'deleted_at' => 'null',
+                'country' => 'BD',
+                'address_1' => 'Khilkhet',
+                'address_2' => 'null',
+                'city' => 'Dhaka',
+                'state' => 'Dhaka',
+                'zone' => 'Uttora',
+                'zip_code' => '1210',
+                'lat' => '23.830646510005334',
+                'lng' => '90.42397062039595',
+                'type' => 'offer',
+                'added_by' => '5'
             ],
 
             [
@@ -46,6 +46,10 @@ class LocationSeeder extends Seeder
                 'type' => 'offer',
                 'added_by' => '1'
             ]
-         ]);
+         ];
+
+         foreach ($locations as $key => $value) {
+            Location::create($value);
+        }
     }
 }

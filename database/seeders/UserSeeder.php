@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::insert([
+        $users = [
            [
             'first_name' => 'Md. Asiqul',
             'last_name' => 'Islam',
@@ -52,6 +52,10 @@ class UserSeeder extends Seeder
             'email' => 'user@admin3.com',
             'password' => Hash::make('12345678')
            ]
-        ]);
+        ];
+
+        foreach ($users as $key => $value) {
+            User::create($value);
+        }
     }
 }

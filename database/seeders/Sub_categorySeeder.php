@@ -14,7 +14,7 @@ class Sub_categorySeeder extends Seeder
      */
     public function run()
     {
-        Sub_category::insert([
+        $sub_categories = [
             [
                 'name' => 'samsung',
                 'parent_id' => '2',
@@ -34,9 +34,13 @@ class Sub_categorySeeder extends Seeder
 
             [
                 'name' => 'Nokia',
-                'parent_id' => '1',
+                'parent_id' => '2',
                 'is_active' => 'true'
             ]
-         ]);
+         ];
+
+         foreach ($sub_categories as $key => $value) {
+            Sub_category::create($value);
+        }
     }
 }

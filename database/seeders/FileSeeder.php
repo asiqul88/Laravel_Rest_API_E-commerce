@@ -14,7 +14,7 @@ class FileSeeder extends Seeder
      */
     public function run()
     {
-        File::insert([
+        $files = [
             [
                 'name' => 'hqdefault_26092022_204611.jpg',
                 'file' => 'http://127.0.0.1:8000/hqdefault_26092022_204611.jpg',
@@ -50,6 +50,10 @@ class FileSeeder extends Seeder
                 'description' => 'null',
                 'product_id' => '1',
             ]
-         ]);
+         ];
+
+         foreach ($files as $key => $value) {
+            File::create($value);
+        }
     }
 }

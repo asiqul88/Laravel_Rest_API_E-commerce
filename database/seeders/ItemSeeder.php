@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Result;
+use App\Models\Item;
 
-class ResultSeeder extends Seeder
+class ItemSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class ResultSeeder extends Seeder
      */
     public function run()
     {
-        Result::insert([
+        $items = [
             [
                 'item_type' => 'product1',
                 'location_id' => '2',
@@ -86,6 +86,9 @@ class ResultSeeder extends Seeder
                 'status' => 'pending',
                 'is_active' => 'true'
             ]
-         ]);
+         ];
+         foreach ($items as $key => $value) {
+            Item::create($value);
+        }
     }
 }
